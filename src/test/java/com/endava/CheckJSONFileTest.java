@@ -1,18 +1,22 @@
 package com.endava;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.mapping.Car;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.time.LocalDateTime;
 
+public class CheckJSONFileTest {
 
-public class CheckCar {
-    public static void main(String arg[]) throws JsonProcessingException {
+    @Test
+    public void checkFile() throws IOException {
         ObjectMapper mapper = new ObjectMapper()
                 .registerModule(new ParameterNamesModule())
                 .registerModule(new Jdk8Module())
@@ -20,22 +24,9 @@ public class CheckCar {
         LocalDateTime formatter = LocalDateTime.now();
 
         formatter.toString();
-        Car car = new Car("mercedes", 5, formatter);
-
-
-        //map json to car
-        try {
-
-            System.out.println(car);
-
-            String carJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(car);
-            System.out.println(carJson);
-        } catch (JsonParseException e) {
-            e.printStackTrace();
-        }
-
-
+        Reader reader = new FileReader("src\\test\\resources\\testData\\car.json");
+        Car car = mapper.readValue(reader, Car.class);
+        System.out.println(car);
+        Assertions.assertEquals("mercedes",car.getBrand());
     }
-
 }
-

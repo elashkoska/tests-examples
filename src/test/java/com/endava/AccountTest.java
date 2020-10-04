@@ -36,7 +36,7 @@ public class AccountTest {
     @Disabled
     @Test
     void shouldReturnCorrectAccountNumber() {
-        Assertions.assertSame(12345, account.getAccountNumber());
+        Assertions.assertSame(12345,account.getAccountNumber());
     }
 
 }
