@@ -33,10 +33,10 @@ public class AccountTest {
         Assertions.assertSame("Student1", account.getUsername());
     }
 
-    @Disabled
+
     @Test
     void shouldReturnCorrectAccountNumber() {
-        Assertions.assertSame(12345,account.getAccountNumber());
+        Assertions.assertEquals("12345", account.getAccountNumber().toString());
     }
 
 }
