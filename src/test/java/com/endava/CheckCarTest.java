@@ -22,7 +22,6 @@ public class CheckCarTest {
         formatter.toString();
         Car car = new Car("mercedes", 5, formatter);
 
-
         //map json to car
         try {
 
@@ -33,6 +32,7 @@ public class CheckCarTest {
         } catch (JsonParseException e) {
             e.printStackTrace();
         }
+
 
 
     }
