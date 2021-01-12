@@ -4,6 +4,7 @@ stages{
 stage{"build"){
 steps{
  echo 'building the application...'
+ echo 'Applicayion built'
 }
 }
 
