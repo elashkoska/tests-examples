@@ -12,7 +12,7 @@ public class JdbcConnection {
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         String host = "localhost";
         String port = "3306";
-        String string = "jdbc:mysql://localhost:3306/qadbt?useSSL=true";
+        String string = "jdbc:mysql://localhost:3306/qadbt/employeeinfo";
 
         Connection con = DriverManager.getConnection(string, "user", "100postgres100");
         System.out.println(con);
