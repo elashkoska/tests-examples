@@ -12,19 +12,18 @@ public class JdbcConnection {
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         String host = "localhost";
         String port = "3306";
-        String string = "jdbc:mysql://localhost:3306/qadbt/employeeinfo";
+        String string = "jdbc:mysql://localhost:3306/qadbt";
 
         Connection con = DriverManager.getConnection(string, "user", "100postgres100");
         System.out.println(con);
 
         Statement s = con.createStatement();
-        ResultSet resultSet = s.executeQuery("select * from employeeinfo where name like 'Elena';");
+        ResultSet resultSet = s.executeQuery("select * from employeeinfo where name like 'elena'");
 
+        while (resultSet.next()) {
 
-        while (resultSet.next()) ;
-        {
-            System.out.println(resultSet.getString("gender"));
-            System.out.println(resultSet.getString("name"));
+            System.out.println(resultSet.getString(4));
+            System.out.println(resultSet.getString(1));
 
         }
     }
