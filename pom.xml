@@ -22,6 +22,8 @@
     </build>
     <modules>
         <module>ui-framework</module>
+        <module>ui-testing</module>
+        <module>basic-functions</module>
     </modules>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependencies>
